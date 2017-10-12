@@ -22,5 +22,11 @@ import org.junit.Test;
     {
     	assertEquals(3, Calculator.add("1,2"));
     }
+
+    @Test
+ 	public void testMultiplesNumbers() 
+    {
+    	assertEquals(6, Calculator.add("1,2,3"));
+    }
     
 }
