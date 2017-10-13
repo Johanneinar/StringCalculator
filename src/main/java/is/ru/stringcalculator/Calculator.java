@@ -1,13 +1,16 @@
 package is.ru.stringcalculator;
 
-public class Calculator {
+public class Calculator 
+{
  
 	public static int add(String text)
  	{
  		if(text.equals(""))
  			return 0;
- 		else{
- 			if(text.contains(",")){
+ 		else
+ 		{
+ 			if(text.contains(","))
+ 			{
  				String numbers[] = text.split(",|\n");
  				return sum(numbers);
  			}
@@ -20,15 +23,44 @@ public class Calculator {
  		return Integer.parseInt(number);
  	}
 
- 	private static int sum(String [] numbers)
- 	{
-		int total = 0;
- 		for(String number : numbers){
- 			total +=toInt(number);
+
+
+	private static int sum(String [] numbers)
+	{
+  		int total = 0;
+ 		String negativeNumbers = "";
+ 		boolean isNegative = false;
+  		for(String number : numbers)
+  		{
+ 			if(toInt(number) < 0)
+ 			{
+ 				if(negativeNumbers.isEmpty())
+ 				{
+ 					negativeNumbers += number;
+ 					isNegative = true;
+ 				}
+				else
+				{
+ 					negativeNumbers += "," + number;
+ 					isNegative = true;
+ 				}
+ 
+ 			}
+ 			else
+ 			{
+ 				total += toInt(number);
+ 			}
  		}
- 		return total;
+ 
+ 		if(isNegative)
+ 		{
+ 			throw new IllegalArgumentException("Negatives not allowed: " + negativeNumbers);
+  		}
+  		return total;
+  	}
 
- 	}
 
 
- }
+
+}
+
