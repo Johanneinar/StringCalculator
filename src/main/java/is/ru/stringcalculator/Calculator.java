@@ -28,10 +28,17 @@ public class Calculator
 	private static int sum(String [] numbers)
 	{
   		int total = 0;
+  		int value = 0;
  		String negativeNumbers = "";
  		boolean isNegative = false;
   		for(String number : numbers)
   		{
+  			value = toInt(number);
+  			if(numbersBiggerThan1000(value))
+ 			{
+ 				continue;
+ 			}
+
  			if(NegativeNumberfound(toInt(number)))
  			{
  				negativeNumbers = returnNegatives(negativeNumbers, number);
@@ -41,6 +48,7 @@ public class Calculator
  			{
  				total += toInt(number);
  			}
+
  		}
  
  		if(isNegative)
@@ -67,6 +75,16 @@ public class Calculator
  			negativeNumbers += "," + number;
  		}
  		return negativeNumbers;
+ 	}
+
+ 	private static Boolean numbersBiggerThan1000(int number)
+ 	{
+ 		if(number > 1000)
+ 		{
+ 			return true;
+ 		}	
+
+ 		return false;
  	}
 
 }

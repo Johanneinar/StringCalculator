@@ -62,6 +62,20 @@ import org.junit.Test;
  		assertEquals("Negatives not allowed: -4,-5", exception.getMessage());
  		}
  	}
+
+ 	@Test
+ 	public void testNumbersBiggerThan1000()
+ 	{
+ 		assertEquals(2, Calculator.add("1001,2"));
+ 	}
+
+
+ 	@Test
+ 	public void TestanotherNumbersBiggerThan1000()
+ 	{
+ 		assertEquals(16, Calculator.add("6,2,8,5003,9843"));
+ 	}
+ 
  
     
 }
