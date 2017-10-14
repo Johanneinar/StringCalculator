@@ -7,9 +7,7 @@ public class Calculator
  	{
  		if(text.contains("//"))
  		{
- 		String delimiter = Character.toString(text.charAt(2));
- 		String result = text.substring(4);
- 		String numbers[] = result.split(delimiter);
+ 		String numbers[] = handdleDifferentDelimiter(text);
  		return sum(numbers);
  		}
 
@@ -93,6 +91,14 @@ public class Calculator
  		}	
 
  		return false;
+ 	}
+
+ 	private static String[] handdleDifferentDelimiter(String text)
+ 	{
+ 		String delimiter = Character.toString(text.charAt(2));
+ 		String result = text.substring(4);
+ 		String numbers[] = result.split(delimiter);
+ 		return numbers;
  	}
 
 }

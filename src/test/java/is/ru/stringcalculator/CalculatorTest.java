@@ -81,6 +81,12 @@ import org.junit.Test;
     {
  		assertEquals(3, Calculator.add("//;\n1;2"));
  	}
+
+ 	@Test
+    public void testanotherHandleDifferentdelimiter() 
+    {
+ 		assertEquals(30, Calculator.add("//;\n1;9;10;4;6"));
+ 	}
  
  
     
