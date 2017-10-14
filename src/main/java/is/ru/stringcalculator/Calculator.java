@@ -32,19 +32,10 @@ public class Calculator
  		boolean isNegative = false;
   		for(String number : numbers)
   		{
- 			if(toInt(number) < 0)
+ 			if(NegativeNumberfound(toInt(number)))
  			{
- 				if(negativeNumbers.isEmpty())
- 				{
- 					negativeNumbers += number;
- 					isNegative = true;
- 				}
-				else
-				{
- 					negativeNumbers += "," + number;
- 					isNegative = true;
- 				}
- 
+ 				negativeNumbers = returnNegatives(negativeNumbers, number);
+ 				isNegative = true;
  			}
  			else
  			{
@@ -55,12 +46,28 @@ public class Calculator
  		if(isNegative)
  		{
  			throw new IllegalArgumentException("Negatives not allowed: " + negativeNumbers);
-  		}
+		}
   		return total;
   	}
 
+  	private static boolean NegativeNumberfound(int number)
+  	{
+ 		return number < 0;
+ 	}
 
-
+ 	private static String returnNegatives(String negativeNumbers, String number)
+ 	{
+ 		
+ 		if(negativeNumbers.isEmpty())
+ 		{
+ 			negativeNumbers += number;
+ 		}
+		else
+		{
+ 			negativeNumbers += "," + number;
+ 		}
+ 		return negativeNumbers;
+ 	}
 
 }
 
