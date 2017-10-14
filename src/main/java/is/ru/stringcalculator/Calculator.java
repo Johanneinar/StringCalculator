@@ -5,6 +5,14 @@ public class Calculator
  
 	public static int add(String text)
  	{
+ 		if(text.contains("//"))
+ 		{
+ 		String delimiter = Character.toString(text.charAt(2));
+ 		String result = text.substring(4);
+ 		String numbers[] = result.split(delimiter);
+ 		return sum(numbers);
+ 		}
+
  		if(text.equals(""))
  			return 0;
  		else

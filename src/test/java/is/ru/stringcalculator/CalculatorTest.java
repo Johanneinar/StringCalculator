@@ -75,6 +75,12 @@ import org.junit.Test;
  	{
  		assertEquals(16, Calculator.add("6,2,8,5003,9843"));
  	}
+
+ 	@Test
+    public void testHandleDifferentdelimiter() 
+    {
+ 		assertEquals(3, Calculator.add("//;\n1;2"));
+ 	}
  
  
     
